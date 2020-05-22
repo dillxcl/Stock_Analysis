@@ -1,19 +1,28 @@
 # Stock_Analysis
 
-1. After adding the model to django-admin, run following command for migrating
-### python3 manage.py makemigrations
+### To run the program
 
-1. Once the command is done above, run following command for migrate
-### python3 manage.py migrate
-
-1. To run the server
-### python3 manage.py runserver 
+After adding the model to django-admin, run following command for migrating
+```
+python3 manage.py makemigrations
+```
 
 
+Once the command is done above, run following command for migrate
+```
+python3 manage.py migrate
+```
+
+
+To run the server
+```
+python3 manage.py runserver
+```
 
 
 Change your settings.py file (for local)
 
+```
 DATABASES = {
 'default': {
     'ENGINE': 'django.db.backends.postgresql',
@@ -24,6 +33,6 @@ DATABASES = {
     'PORT': '5432',
     }
 }
-
+```
 This will change if we have cloudserver
 
