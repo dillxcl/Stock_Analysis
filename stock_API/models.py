@@ -1,8 +1,10 @@
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
+from . import Get_Stock_Data
 
 
-class Post(models.Model):
+
+class Stock_API(models.Model):
     name = models.CharField(max_length=200,default='AC')
     price = ArrayField(models.CharField(max_length=200), default=list)
     date = ArrayField(models.CharField(max_length=200), default=list)
@@ -12,4 +14,5 @@ class Post(models.Model):
 
     def __str__(self):
         return self.name
+
 

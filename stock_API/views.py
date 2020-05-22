@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Post
-from .serializers import PostSerializer
+from .models import Stock_API
+from .serializers import Stock_API_Serializer
 
-class LanguageView(viewsets.ModelViewSet):
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
+class Stock_API_View(viewsets.ModelViewSet):
+    queryset = Stock_API.objects.all()
+    serializer_class = Stock_API_Serializer
     
