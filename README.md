@@ -1,5 +1,24 @@
 # Stock_Analysis
 
+
+### Some commands to use
+
+Create project
+```
+django-admin startproject [project name]
+```
+
+Create App inside the project
+```
+python manage.py startapp [app name]
+```
+
+To check version
+```
+python -m django --version
+```
+
+
 ### To run the program
 
 After adding the model to django-admin, run following command for migrating
