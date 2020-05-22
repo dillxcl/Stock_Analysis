@@ -1,6 +1,7 @@
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
 
+
 class Post(models.Model):
     name = models.CharField(max_length=200,default='AC')
     price = ArrayField(models.CharField(max_length=200), default=list)
@@ -11,3 +12,4 @@ class Post(models.Model):
 
     def __str__(self):
         return self.name
+
