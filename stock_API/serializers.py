@@ -5,3 +5,4 @@ class Stock_API_Serializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Stock_API
         fields = ('name','price','date','PE_ratio','EPS','Book_value') 
+        

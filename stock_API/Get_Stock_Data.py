@@ -69,7 +69,8 @@ def get_history(ticker):
         col = row.find_all("td")
         if count > 90:
             break
-        date.append(col[0].text)
+        new_data = col[0].text.replace(",","")
+        date.append(new_data.replace(".",""))
         price.append(col[4].text)
         count+=1
 
