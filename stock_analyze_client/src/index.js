@@ -5,13 +5,12 @@ import configureStore from './store';
 
 import './index.css';
 import App from './App';
-import Home from './components/home'
 import * as serviceWorker from './serviceWorker';
 
 
 ReactDOM.render(
   <Provider store = {configureStore()}>
-    <Home />
+    <App />
   </Provider>,
   document.getElementById('root')
 );

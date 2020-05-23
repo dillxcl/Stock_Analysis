@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Chart } from 'react-charts';
-import { Container, Row, Button } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
-import './home.css';
+import './Home.css';
 import { simpleAction } from '../actions/simpleAction';
 
 
@@ -12,7 +14,7 @@ class Home extends Component {
     super(props);
     this.state = {
       data: [],
-      series: null,
+      series: { showPoints: true },
       axes: []
     };
   }
@@ -113,11 +115,6 @@ class Home extends Component {
       ]
     });
     this.setState({
-      series: {
-        showPoints: true
-      }
-    });
-    this.setState({
       axes: [
         { primary: true, type: 'time', position: 'bottom' },
         { type: 'linear', position: 'left' }
@@ -126,55 +123,35 @@ class Home extends Component {
   }
 
 	render() {  
-    const series = {
-      showPoints: false
-    };
     
-    // const axes = [
-    //   { primary: true, type: 'time', position: 'bottom' },
-    //   { type: 'linear', position: 'left' }
-    // ];
-    
-    const { data, axes } = this.state;
+    const { data, axes, series } = this.state;
 
 		return (
-      <div className = "HomeContainer">
-        {data.length > 0 && axes.length > 0 && (
-          <Chart
-            data={data}
-            series={this.state.series}
-            axes={axes}
-            tooltip
-            primaryCursor
-            secondaryCursor
-          />
-        )}
-      </div>
+      <Container>
+        <Row>
+          <Col md = {{ span: 10, offset: 1 }}>
+            <div className = "HomeContainer">
+              {data.length > 0 && axes.length > 0 && (
+                <Chart
+                  data={data}
+                  series={series}
+                  axes={axes}
+                  tooltip
+                  primaryCursor
+                  secondaryCursor
+                />
+              )}
+            </div>
+          </Col>
+        </Row>
+      </Container>
 		);
 	}
-
-  
-  // simpleAction = (event) => {
-  //   this.props.simpleAction();
-  // }
-
-  // render() {
-  //   return (
-  //     <div className="Home">
-  //       <pre>{JSON.stringify(this.props)}</pre>
-  //       <button onClick = {this.simpleAction}>Test redux action</button>
-  //     </div>
-  //   );
-  // }
 };
 
-const mapStateToProps = state => ({
-  ...state
-});
+const mapStateToProps = state => ({});
 
-const mapDispatchToProps = dispatch => ({
-  simpleAction: () => dispatch(simpleAction())
-})
+const mapDispatchToProps = dispatch => ({});
 
 export default connect(
   mapStateToProps,
