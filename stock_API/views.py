@@ -21,7 +21,7 @@ class Stock_API_View(viewsets.ModelViewSet):
     current_date = str(format_date(current_date, locale='en')).replace(",","")
     queryset = Stock_API.objects.all()
     date = Stock_API.objects.filter(date__0=current_date)
-    
+    serializer_class = Stock_API_Serializer
     #print(current_date)
     #print(date)
 
