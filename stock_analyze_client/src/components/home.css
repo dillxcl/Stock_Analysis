@@ -1,0 +1,9 @@
+.HomeContainer {
+	height: 500px;
+	width: 800px;
+}
+  
+.HomeContainer svg {
+	/* This prevents the X axis labels from being cut off on the right */
+	overflow: unset !important;
+}
