@@ -1,7 +1,8 @@
 from rest_framework import serializers
-from .models import Post
+from .models import Stock_API
 
-class PostSerializer(serializers.HyperlinkedModelSerializer):
+class Stock_API_Serializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Post
-        fields = ('name','price','PE_ratio','EPS','Book_value') 
+        model = Stock_API
+        fields = ('name','price','date','PE_ratio','EPS','Book_value') 
+        
