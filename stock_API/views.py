@@ -3,7 +3,7 @@ from rest_framework import viewsets
 from .models import Stock_API
 from .serializers import Stock_API_Serializer
 from . import Get_Stock_Data
-from
+
 
 company = 'AC.TO'
 
