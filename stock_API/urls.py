@@ -1,10 +1,10 @@
 from django.urls import path, include
-from . import views 
+from .views import Stock_API_View
 from rest_framework import routers 
 
 router = routers.DefaultRouter()
-router.register('Stock_API', views.Stock_API_View)
+router.register('Stock_API', Stock_API_View)
 
 urlpatterns = [
-    path('', include(router.urls))
-]
+    path('', include(router.urls)),
+    ]

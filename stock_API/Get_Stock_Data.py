@@ -1,6 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
 from lxml import html
+import numpy as np
+
+
+
+#date_list, price, volume= yahoo.get_history('AC.TO')
 
 def get_ticker(ticker):
     main_url = "https://ca.finance.yahoo.com/quote/" + str(ticker)
@@ -62,17 +67,21 @@ def get_history(ticker):
     table = soup.find('table')
     price = []
     date = []
+    volume = []
     count = 0 
-
-    ## Find all the rows of a Table and find the data inside
-    for row in table.find_all("tr")[1:]:
-        col = row.find_all("td")
+    
+    for row in table.find_all("tr"):
+        try:
+            col = row.find_all("td")
+            new_date = col[0].text.replace(",","")
+            date.append(new_date.replace(".",""))
+            price.append(col[4].text)
+            volume.append(col[6].text.replace(",",""))
+        except IndexError:
+            continue
         if count > 90:
             break
-        new_data = col[0].text.replace(",","")
-        date.append(new_data.replace(".",""))
-        price.append(col[4].text)
         count+=1
-
-    return date, price
+ 
+    return date, price, volume
     
