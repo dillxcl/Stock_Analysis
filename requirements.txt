@@ -7,7 +7,7 @@ Django==3.0.6
 django-cors-headers==3.3.0
 djangorestframework==3.11.0
 idna==2.9
-lxml==4.5.1
+lxml==4.6.3
 numpy==1.18.4
 psycopg2-binary==2.8.5
 pytz==2020.1
